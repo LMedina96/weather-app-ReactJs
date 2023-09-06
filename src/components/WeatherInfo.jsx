@@ -1,11 +1,18 @@
 import React from 'react'
 
-const WeatherInfo = ({selectedCity, location, current, handleCityChange, cities}) => {
+const WeatherInfo = ({selectedCity, location, current, handleCityChange, cities, searchCity, inputValue, onInputChange}) => {
 
   return (
     <>
       <div>
             <h3>Select a Country</h3>
+            {/* <form action="POST" onSubmit={(event) => searchCity(event)}>
+                <input 
+                    type="text"
+                    value={inputValue}
+                    onChange={onInputChange}
+                />
+            </form> */}
             <select className='form-select mb-3' onChange={handleCityChange} value={selectedCity}>
             {cities.map((city) => (
                 <option key={city.value} value={city.value}>

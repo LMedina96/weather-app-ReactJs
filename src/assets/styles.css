@@ -13,3 +13,8 @@
     color: black;
     height: 800px;
 }
+
+.selectedList:hover {
+    background-color: #3d88f8;
+    cursor: pointer;
+}

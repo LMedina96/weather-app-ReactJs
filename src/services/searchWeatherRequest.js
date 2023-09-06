@@ -1,9 +1,9 @@
-export const weatherRequest = async(coords) => {
+export const searchWeatherRequest = async(city) => {
 
     const key = 'f2e4d8b9cfmshb5fc593171b822ap18ef68jsn45b0d52b3b7b'
     const host = 'weatherapi-com.p.rapidapi.com'
 
-    const url = `https://weatherapi-com.p.rapidapi.com/current.json?q=${coords}`
+    const url = `https://weatherapi-com.p.rapidapi.com/search.json?q=${city}`
     const options = {
         method: 'GET',
         headers: {

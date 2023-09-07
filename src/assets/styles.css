@@ -11,10 +11,32 @@
     font-family:Arial, Helvetica, sans-serif;
     background-color: rgba(201, 201, 201, 0.685);
     color: black;
-    height: 800px;
 }
 
 .selectedList:hover {
     background-color: #3d88f8;
     cursor: pointer;
+}
+
+.infoCard {
+    border: 1px solid black;
+    border-radius: 1rem;
+    background-color: rgb(214, 214, 214);
+    width: 600px;
+}
+
+.hourCard {
+    border-radius: 0.5rem;
+    width: 240px;
+    background-color: antiquewhite;
+    padding: 1rem;
+    align-items: center;
+}
+
+.carrousel {
+    overflow:auto;
+    padding: 1rem;
+    list-style: none;
+    background-color:aliceblue;
+    box-shadow: 0px 15px 10px -5px rgba(0,0,0,0.50)
 }

@@ -6,6 +6,7 @@ export const useWeatherData = (coords) => {
     const [isLoading, setIsLoading] = useState(true)
 
     const getCityWeather = async() => {
+        setIsLoading(true)
         const response = await weatherRequest(coords);
         setWeatherData(response)
         setIsLoading(false)

@@ -1,12 +1,15 @@
-#root {
+body{
     background-color: grey;
+}
+
+#root {
     width: 100vw;
     height: 100vh;
     padding: 2rem;
 }
 
 .App {
-    padding: 2rem;
+    padding: 1rem;
     border-radius: 2rem;
     font-family:Arial, Helvetica, sans-serif;
     background-color: rgba(201, 201, 201, 0.685);
@@ -22,12 +25,12 @@
     border: 1px solid black;
     border-radius: 1rem;
     background-color: rgb(214, 214, 214);
-    width: 600px;
+    width: 680px;
 }
 
 .hourCard {
     border-radius: 0.5rem;
-    width: 240px;
+    width: 160px;
     background-color: antiquewhite;
     padding: 1rem;
     align-items: center;
@@ -38,5 +41,35 @@
     padding: 1rem;
     list-style: none;
     background-color:aliceblue;
-    box-shadow: 0px 15px 10px -5px rgba(0,0,0,0.50)
+    box-shadow: 0px 15px 10px -5px rgba(0,0,0,0.50);
+    border-radius: 0.5rem;
+}
+
+.input-group {
+    position: relative;
+}
+
+.searchInput {
+    border-radius: 0px;
+}
+
+.citiesList {
+    border-radius: 0px;
+    margin: 0 !important;
+}
+
+.weather-list {
+    position: absolute;
+    width: 100%;
+    top: 38px;
+    z-index: 1;
+}
+
+@media (max-width: 768px ) {
+    .infoCard {
+        border: 1px solid black;
+        border-radius: 1rem;
+        background-color: rgb(214, 214, 214);
+        width: 90%;
+    }
 }

@@ -49,6 +49,7 @@ const WeatherCard = () => {
                         onInputChange={onInputChange}
                         searchCitys={searchCitys}
                         showDropdown={showDropdown}
+                        setShowDropdown={setShowDropdown}
                         handleCityClick={handleCityClick}
                     />
 

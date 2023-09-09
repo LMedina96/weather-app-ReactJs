@@ -16,10 +16,10 @@ const WeatherCard = () => {
     const [searchCitys, setSearchCitys] = useState([])
     const [showDropdown, setShowDropdown] = useState(false);
 
-    const { weatherData, isLoading } = useWeatherData(selectedCity)
+    const { weatherData, infoCardLoading } = useWeatherData(selectedCity)
     const { location, current } = weatherData
 
-    const { weatherPerHour } = useWheaterDataPerHour(selectedCity)
+    const { weatherPerHour, isPerHourLoading } = useWheaterDataPerHour(selectedCity)
 
     const debouncedSearchWeather = debounce(async (inputValue) => {
         const searchData = await searchWeatherRequest(inputValue);
@@ -38,46 +38,42 @@ const WeatherCard = () => {
         setSelectedCity(`${lat},${lon}`);
         setShowDropdown(false);
         setInputValue('')
-
-        console.log(weatherPerHour)
     };
 
     return (
         <>
             <div className="p-4">
-                {isLoading
-                    ? <h2>Loading...</h2>
-                    :
-                    <div>
-                        <SearchInput
-                            inputValue={inputValue}
-                            onInputChange={onInputChange}
-                            searchCitys={searchCitys}
-                            showDropdown={showDropdown}
-                            handleCityClick={handleCityClick}
-                        />
+                <div>
+                    <SearchInput
+                        inputValue={inputValue}
+                        onInputChange={onInputChange}
+                        searchCitys={searchCitys}
+                        showDropdown={showDropdown}
+                        handleCityClick={handleCityClick}
+                    />
 
-                        <WeatherInfoCard
-                            location={location}
-                            current={current}
-                        />
+                    <WeatherInfoCard
+                        location={location}
+                        current={current}
+                        infoCardLoading={infoCardLoading}
+                    />
 
-                        <ul className='m-4 d-flex carrousel'>
-                            {
-                                weatherPerHour.map((hour) => (
-                                    <li key={hour.time}>
-                                        <WeatherHourCard 
-                                            time={hour.time}
-                                            condition={hour.condition}
-                                            temp={hour.temp_c}
-                                            precip={hour.precip_mm}
-                                        />
-                                    </li>
-                                ))
-                            }
-                        </ul>
-                    </div>
-                }
+                    <ul className='m-4 d-flex carrousel'>
+                        {
+                            weatherPerHour.map((hour) => (
+                                <li key={hour.time}>
+                                    <WeatherHourCard
+                                        time={hour.time}
+                                        condition={hour.condition}
+                                        temp={hour.temp_c}
+                                        precip={hour.precip_mm}
+                                        isPerHourLoading={isPerHourLoading}
+                                    />
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
             </div>
         </>
     )

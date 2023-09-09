@@ -3,13 +3,13 @@ import { weatherRequest } from "../services/weatherRequest"
 
 export const useWeatherData = (coords) => {
     const [weatherData, setWeatherData] = useState({})
-    const [isLoading, setIsLoading] = useState(true)
+    const [infoCardLoading, setInfoCardLoading] = useState(true)
 
     const getCityWeather = async() => {
-        setIsLoading(true)
+        setInfoCardLoading(true)
         const response = await weatherRequest(coords);
         setWeatherData(response)
-        setIsLoading(false)
+        setInfoCardLoading(false)
     }
     
     useEffect(() => {
@@ -18,7 +18,7 @@ export const useWeatherData = (coords) => {
 
     return ({
         weatherData,
-        isLoading
+        infoCardLoading
         }
     )
 }
